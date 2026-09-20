@@ -1,0 +1,6 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "taste-lens",
+  "version": "0.1.0",
+  "description": "Divisare-bar taste filter for architecture students: magazine-quality image prompts + crit"
+}
