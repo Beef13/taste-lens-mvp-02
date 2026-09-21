@@ -3,9 +3,9 @@ name: generate
 description: Rewrite a rough student brief into a Divisare-bar architectural image prompt. Use when user wants AI imagery for studio work — massing, interior, detail, or context view.
 ---
 
-# Taste-Lens Generate v0.4 — simplified after v0.3 regression
+# Taste-Lens Generate v0.5 — from test image 21 Sep
 
-Anchors: Thornbury House, Carrickalinga Shed, Monty Sibbel. Target: Divisare magazine quality. Lesson: shorter prompts beat overloaded specs.
+Anchors: Thornbury House, Carrickalinga Shed, Monty Sibbel. Lesson from test: image model ignores negatives, overfills frame, gives harsh sun + clutter. Fix with positive empty + overcast constraints.
 
 ## Required inputs (ask if missing)
 - brief: what + where (site, orientation if known)
@@ -15,13 +15,13 @@ Anchors: Thornbury House, Carrickalinga Shed, Monty Sibbel. Target: Divisare mag
 ## Rewrite rules — every prompt MUST include
 1. **Constraint first:** name the limit shaping the form.
 2. **Precedent transformed:** 1 named move (e.g. gable extrusion, courtyard removal, reveal beams) — never style words like "modern luxury".
-3. **Section + light:** orientation + 2+ light sources (e.g. north garden opening + south polycarbonate glow / slot to sky / deep eave shade). No HDR sunset.
-4. **≤3 honest materials:** name finish + job only. E.g. oiled spotted gum joinery; lime wash matched to gum trunks; gal iron folded over ridge. No generic wood/concrete/stone.
-5. **Garden as room, no decor plants:** planting only outside in ground (gum canopy / native courtyard). Interiors: no plants. BAN hanging pothos, trailing vines, monstera corner, ivy facade.
-6. **Camera + one view:** ONE room / threshold / detail per image. 35mm, eye-level 1.6m, straight verticals, soft daylight. No wide-angle, no drone, no styling clutter.
+3. **Section + light (positive only):** orientation + overcast soft daylight, no direct sun patches, no blown garden, pendant light off. E.g. "overcast north light through garden opening, soft polycarbonate glow south".
+4. **≤2 timbers max, same family:** e.g. spotted gum joinery + ply ceiling only. Empty surfaces — "bare terrazzo floor, empty timber table, empty shelves, bare corners, no fruit, no vase, no books visible".
+5. **Garden as room, no indoor plants:** planting only outside in ground. Interiors positive: "no indoor plants, empty floor corners".
+6. **Camera + tight crop:** ONE volume only — crop out kitchen/living if dining. State exclusions positively: "dining volume only, no kitchen counter, no doorway glimpse". 35mm, eye-level 1.6m, straight verticals.
 
-## Negative prompt (always append, keep short)
-HDR sunset, drone view, ultra-wide distortion, parametric blob, floating villa, fake timber, plastic plants, hanging plants, monstera indoors, ivy covering facade, blurred entourage, cluttered styling
+## Negative prompt (short — models mostly ignore it, so main prompt must already say empty/overcast positively)
+HDR sunset, drone, ultra-wide, hanging plants, monstera indoors, cluttered styling
 
 ## Output format
 1. Refined prompt (max 3 sentences, quiet + specific)
